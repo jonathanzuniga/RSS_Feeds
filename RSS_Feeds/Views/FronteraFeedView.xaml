@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="RSS_Feeds.FronteraFeedView"
+	Title="Frontera">
+	<ContentPage.ToolbarItems>
+    	<ToolbarItem Name="Reload" Command="{Binding ReloadCommand}"/>
+    </ContentPage.ToolbarItems>
+
+	<ContentPage.Content>
+		 <StackLayout>
+	        <ActivityIndicator x:Name="activityInd" Color="Blue" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" ></ActivityIndicator>
+
+		    <ListView x:Name="rsslist" ItemsSource="{Binding Records}" SelectedItem="{Binding Selected}" ItemTapped="OnItemSelected">
+		    	<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid Padding="16, 4" RowSpacing="0">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="56" />
+									<ColumnDefinition Width="*" />
+								</Grid.ColumnDefinitions>
+
+								<Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding Image}" HorizontalOptions="Start"/>
+
+								<Label Grid.Row="0" Grid.Column="1" LineBreakMode="TailTruncation" Text="{Binding Title}" HorizontalOptions="FillAndExpand" />
+								<Label Grid.Row="1" Grid.Column="1" LineBreakMode="TailTruncation" Text="{Binding PubDate}" HorizontalOptions="FillAndExpand" FontSize="Micro" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+		    	</ListView.ItemTemplate>
+		  	</ListView>  
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
