@@ -69,7 +69,7 @@ namespace RSS_Feeds
 		private Task<IEnumerable<FronteraRecord>> GetRecordsAsync()
 		{
 			return Task.Factory.StartNew(() => {
-				return service.GetTop10Songs();
+				return service.GetFronteraRecords();
 			});
 		}
 	}

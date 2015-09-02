@@ -7,7 +7,7 @@ namespace RSS_Feeds
 {
 	public class FronteraFeedService
 	{
-		public IEnumerable<FronteraRecord> GetTop10Songs ()
+		public IEnumerable<FronteraRecord> GetFronteraRecords()
 		{
 			return XDocument.Load(@"http://www.frontera.info/rss/rss.xml").Descendants("item").Select(
 				x => new FronteraRecord(
