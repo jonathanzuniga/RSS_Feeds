@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace RSS_Feeds
 {
-	public class FronteraRecord
+	public class RssRecord
 	{
-		public FronteraRecord (string title, string image, string link, string pubDate)
+		public RssRecord (string title, string image, string link, string pubDate)
 		{
 			this.Title = title;
 

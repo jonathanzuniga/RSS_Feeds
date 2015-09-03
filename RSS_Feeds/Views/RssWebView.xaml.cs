@@ -6,7 +6,7 @@ namespace RSS_Feeds
 {
 	public partial class RssWebView : ContentPage
 	{
-		public RssWebView (FronteraRecordViewModel viewModel)
+		public RssWebView (RssRecordViewModel viewModel)
 		{
 			InitializeComponent ();
 			BindingContext = viewModel;

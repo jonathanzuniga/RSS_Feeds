@@ -36,12 +36,12 @@
     <Compile Include="Views\RssWebView.xaml.cs">
       <DependentUpon>RssWebView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\FronteraRecord.cs" />
-    <Compile Include="Services\FronteraFeedService.cs" />
-    <Compile Include="ViewModels\FronteraFeedViewModel.cs" />
-    <Compile Include="ViewModels\FronteraRecordViewModel.cs" />
-    <Compile Include="Views\FronteraFeedView.xaml.cs">
-      <DependentUpon>FronteraFeedView.xaml</DependentUpon>
+    <Compile Include="Models\RssRecord.cs" />
+    <Compile Include="ViewModels\RssRecordViewModel.cs" />
+    <Compile Include="Services\RssFeedService.cs" />
+    <Compile Include="ViewModels\RssFeedViewModel.cs" />
+    <Compile Include="Views\RssFeedView.xaml.cs">
+      <DependentUpon>RssFeedView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -70,7 +70,7 @@
     <EmbeddedResource Include="Views\RssWebView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FronteraFeedView.xaml">
+    <EmbeddedResource Include="Views\RssFeedView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

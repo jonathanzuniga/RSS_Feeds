@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace RSS_Feeds
 {
-	public class FronteraFeedViewModel : BaseViewModel
+	public class RssFeedViewModel : BaseViewModel
 	{
-		private readonly FronteraFeedService service;
+		private readonly RssFeedService service;
 
-		public FronteraFeedViewModel()
+		public RssFeedViewModel(string url)
 		{
-			this.service = new FronteraFeedService();
-			Records = new ObservableCollection<FronteraRecordViewModel>();
+			this.service = new RssFeedService(url);
+			Records = new ObservableCollection<RssRecordViewModel>();
 			InitalizeCommands();
 		}
 
@@ -34,7 +34,7 @@ namespace RSS_Feeds
 			var records = await GetRecordsAsync();
 
 			foreach (var record in records)
-				Records.Add(new FronteraRecordViewModel(record));
+				Records.Add(new RssRecordViewModel(record));
 
 			RaisePropertyChanged("Records");
 			ShowActivityIndicator = false;
@@ -49,8 +49,8 @@ namespace RSS_Feeds
 
 		#region Properties
 
-		private FronteraRecordViewModel selected;
-		public FronteraRecordViewModel Selected
+		private RssRecordViewModel selected;
+		public RssRecordViewModel Selected
 		{
 			get { return selected; }
 			set {
@@ -62,11 +62,11 @@ namespace RSS_Feeds
 			}
 		}
 
-		public ObservableCollection<FronteraRecordViewModel> Records { get; set; }
+		public ObservableCollection<RssRecordViewModel> Records { get; set; }
 
 		#endregion
 
-		private Task<IEnumerable<FronteraRecord>> GetRecordsAsync()
+		private Task<IEnumerable<RssRecord>> GetRecordsAsync()
 		{
 			return Task.Factory.StartNew(() => {
 				return service.GetFronteraRecords();

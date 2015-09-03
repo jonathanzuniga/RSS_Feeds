@@ -2,11 +2,11 @@
 
 namespace RSS_Feeds
 {
-	public class FronteraRecordViewModel : BaseViewModel
+	public class RssRecordViewModel : BaseViewModel
 	{
-		private readonly FronteraRecord model;
+		private readonly RssRecord model;
 
-		public FronteraRecordViewModel(FronteraRecord model)
+		public RssRecordViewModel(RssRecord model)
 		{
 			this.model = model;
 		}

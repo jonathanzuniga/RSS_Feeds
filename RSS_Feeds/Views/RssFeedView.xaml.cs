@@ -4,18 +4,18 @@ using Xamarin.Forms;
 
 namespace RSS_Feeds
 {
-	public partial class FronteraFeedView : ContentPage
+	public partial class RssFeedView : ContentPage
 	{	
-		public FronteraFeedView ()
+		public RssFeedView (string url, string title)
 		{
 			InitializeComponent ();
-			BindingContext = new FronteraFeedViewModel();
-
+			BindingContext = new RssFeedViewModel(url);
+			Title = title;
 		}
 
 		public void OnItemSelected(object sender, ItemTappedEventArgs args)
 		{
-			var item = args.Item as FronteraRecordViewModel;
+			var item = args.Item as RssRecordViewModel;
 
 			if (item == null)
 				return;
@@ -24,7 +24,7 @@ namespace RSS_Feeds
 			rsslist.SelectedItem = null;
 		}
 
-		private FronteraFeedViewModel ViewModel { get { return BindingContext as FronteraFeedViewModel; }}
+		private RssFeedViewModel ViewModel { get { return BindingContext as RssFeedViewModel; }}
 
 		protected override void OnAppearing()
 		{

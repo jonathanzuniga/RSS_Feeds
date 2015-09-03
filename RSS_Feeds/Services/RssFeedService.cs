@@ -5,12 +5,19 @@ using System.Linq;
 
 namespace RSS_Feeds
 {
-	public class FronteraFeedService
+	public class RssFeedService
 	{
-		public IEnumerable<FronteraRecord> GetFronteraRecords()
+		String rssFeedUrl;
+
+		public RssFeedService(string url)
 		{
-			return XDocument.Load(@"http://www.frontera.info/rss/rss.xml").Descendants("item").Select(
-				x => new FronteraRecord(
+			rssFeedUrl = url;
+		}
+
+		public IEnumerable<RssRecord> GetFronteraRecords()
+		{
+			return XDocument.Load(rssFeedUrl).Descendants("item").Select(
+				x => new RssRecord(
 					(string)x.Element("title"),
 					(string)x.Element("description"),
 					(string)x.Element("link"),

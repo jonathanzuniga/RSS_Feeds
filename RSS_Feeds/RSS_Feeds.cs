@@ -11,9 +11,9 @@ namespace RSS_Feeds
 			// The root page of your application.
 			var tabbedPage = new TabbedPage();
 
-			tabbedPage.Children.Add(new FronteraFeedView());
-			tabbedPage.Children.Add(new ContentPage { BackgroundColor = Color.Blue, Title = "Page 2" });
-			tabbedPage.Children.Add(new ContentPage { BackgroundColor = Color.Green, Title = "Page 3" });
+			tabbedPage.Children.Add(new RssFeedView(@"http://www.frontera.info/rss/rss.xml", "Frontera"));
+			tabbedPage.Children.Add(new RssFeedView(@"http://www.el-mexicano.com.mx/rss/ultimasnoticiasrss.xml", "El Mexicano"));
+			tabbedPage.Children.Add(new RssFeedView(@"http://siglo21.com.mx/index.php/industry-report?format=feed&amp;type=rss", "Siglo 21 - Industry Report"));
 
 			MainPage = new NavigationPage(tabbedPage);
 		}
