@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Xamarin.Forms;
 
 namespace RSS_Feeds
@@ -9,7 +8,7 @@ namespace RSS_Feeds
 		public App ()
 		{
 			// The root page of your application.
-			var tabbedPage = new TabbedPage();
+			var tabbedPage = new TabbedPage { Title = "Noticias recientes" };
 
 			tabbedPage.Children.Add(new RssFeedView(@"http://www.frontera.info/rss/rss.xml", "Frontera"));
 			tabbedPage.Children.Add(new RssFeedView(@"http://www.el-mexicano.com.mx/rss/ultimasnoticiasrss.xml", "El Mexicano"));
@@ -36,4 +35,3 @@ namespace RSS_Feeds
 		}
 	}
 }
-

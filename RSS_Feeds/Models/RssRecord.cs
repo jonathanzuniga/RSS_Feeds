@@ -16,7 +16,7 @@ namespace RSS_Feeds
 			}
 
 			this.Link = link;
-			this.PubDate = pubDate;
+			this.PubDate = pubDate == null ? "Sin fecha de publicación." : pubDate;
 		}
 
 		public string Title { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using Connectivity.Plugin;
 
 namespace RSS_Feeds
 {
@@ -11,6 +12,9 @@ namespace RSS_Feeds
 			InitializeComponent ();
 			BindingContext = new RssFeedViewModel(url);
 			Title = title;
+
+			if (!CrossConnectivity.Current.IsConnected)
+				DisplayAlert ("Error", "Revisa tu conexión de internet y vuelve a intentarlo.", "Aceptar");
 		}
 
 		public void OnItemSelected(object sender, ItemTappedEventArgs args)
@@ -30,8 +34,10 @@ namespace RSS_Feeds
 		{
 			base.OnAppearing();
 
-			if (ViewModel.Records.Count == 0)
-				ViewModel.OnReload();
+			if (CrossConnectivity.Current.IsConnected) {
+				if (ViewModel.Records.Count == 0)
+					ViewModel.OnReload ();
+			}
 		}
 	}
 }

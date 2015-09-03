@@ -3,18 +3,24 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Connectivity.Plugin;
 
 namespace RSS_Feeds
 {
 	public class RssFeedViewModel : BaseViewModel
 	{
+		/// <summary>
+		/// Gets if there is an active internet connection.
+		/// </summary>
+		bool IsConnected { get; }
+
 		private readonly RssFeedService service;
 
 		public RssFeedViewModel(string url)
 		{
-			this.service = new RssFeedService(url);
-			Records = new ObservableCollection<RssRecordViewModel>();
-			InitalizeCommands();
+			this.service = new RssFeedService (url);
+			Records = new ObservableCollection<RssRecordViewModel> ();
+			InitalizeCommands ();
 		}
 
 		#region Commands
@@ -28,6 +34,9 @@ namespace RSS_Feeds
 
 		public async void OnReload()
 		{
+			if (!CrossConnectivity.Current.IsConnected)
+				return;
+			
 			Records.Clear();
 			ShowActivityIndicator = true;
 
