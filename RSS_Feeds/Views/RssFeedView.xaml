@@ -4,12 +4,12 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="RSS_Feeds.RssFeedView">
 	<ContentPage.ToolbarItems>
-    	<ToolbarItem Name="Reload" Command="{Binding ReloadCommand}"/>
+    	<ToolbarItem Name="Actualizar" Command="{Binding ReloadCommand}"/>
     </ContentPage.ToolbarItems>
 
 	<ContentPage.Content>
 		 <StackLayout>
-	        <ActivityIndicator x:Name="activityInd" Color="Blue" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" ></ActivityIndicator>
+	        <ActivityIndicator x:Name="activityInd" Color="Blue" HorizontalOptions="CenterAndExpand" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" VerticalOptions="CenterAndExpand"></ActivityIndicator>
 
 		    <ListView x:Name="rsslist" ItemsSource="{Binding Records}" SelectedItem="{Binding Selected}" ItemTapped="OnItemSelected">
 		    	<ListView.ItemTemplate>
