@@ -13,7 +13,7 @@ namespace RSS_Feeds
 			tabbedPage.Children.Add(new RssFeedView(@"http://www.frontera.info/rss/rss.xml", "Frontera"));
 			tabbedPage.Children.Add(new RssFeedView(@"http://www.el-mexicano.com.mx/rss/ultimasnoticiasrss.xml", "El Mexicano"));
 			tabbedPage.Children.Add(new RssFeedView(@"http://www.oem.com.mx/ElSoldeTijuana/rss/rss_mexico.xml", "El Sol de Tijuana"));
-			tabbedPage.Children.Add(new RssFeedView(@"http://diariotijuana.info/?feed=rss2", "Diario Tijuana por Odilón García"));
+			tabbedPage.Children.Add(new RssFeedView(@"http://eluniversal.com.mx/rss.xml", "El Universal"));
 			tabbedPage.Children.Add(new RssFeedView(@"http://siglo21.com.mx/index.php/industry-report?format=feed&amp;type=rss", "Siglo 21 Industry Report"));
 
 			MainPage = new NavigationPage(tabbedPage);
